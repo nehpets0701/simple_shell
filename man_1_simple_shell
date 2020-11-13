@@ -13,10 +13,12 @@
 Program that takes commands from the keyboard and gives them to the operating system to perform.
 .SH OPTIONS
 .nf
+[Coming Soon]
 .SH RETURN VALUE
 Program must have the exact same output as sh (/bin/sh) as well as the exact same error output.
 .SH EXAMPLES
 .nf
+[Coming soon]
 .SH BUGS
 Contact 1689@holbertonschool.com to correct errors or typos.
 .SH AUTHOR
