@@ -1,5 +1,17 @@
 #ifndef _shellHeader_H_
-#define _shelHeader_H_
+#define _shellHeader_H_
+
+/*struct for calling functions*/
+/**
+ *struct builtin-function pointers
+ *@input:input
+ *@function:h
+ */
+typedef struct builtin
+{
+	char *input;
+	char *(*function)(char **argv);
+} builtin_t;
 
 /*headers*/
 #include <stdio.h>
@@ -9,7 +21,18 @@
 #include <stddef.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
+#include <string.h>
+#include <signal.h>
+#include <stdbool.h>
 
 /*functions*/
-int main(void);
+int main(int argc, char **argv, char **env);
+void executeProg(char **argv);
+void executeBuiltin(char **argv);
+int _strcmp(char *s1, char *s2);
+unsigned int _strlen(char *p);
+char **ShellStrtok(char *str, char *delim);
+char *_strcpy(char *src, char *dest);
+int _putchar(char c);
 #endif
