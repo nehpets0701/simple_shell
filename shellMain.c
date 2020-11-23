@@ -9,7 +9,8 @@ int printPrompt(void)
 	int print = 0;
 	char *prompt = "$ ";
 
-	print = write(STDOUT_FILENO, prompt, 2);
+	if (isatty(STDIN_FILENO) == 1)
+		print = write(STDOUT_FILENO, prompt, 2);
 	if (print == -1)
 		return (-1);
 	return (0);
@@ -49,9 +50,14 @@ int main(int argc, char **argv, char **env)
 		if (input[read - 1] == '\n')
 			input[read - 1] = '\0';
 
+		if (_strcmp(input ,"exit") == 0)
+		{
+			free(input);
+			return (0);
+		}
 		subInputs = ShellStrtok(input, " ");
-		/*input[_strlen(subInputs[0]) - 1] = '\0';*/
-		executeProg(subInputs);
+		if (subInputs != NULL)
+			executeProg(subInputs);
 		free(input);
 	}
 	return (0);
