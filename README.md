@@ -17,10 +17,11 @@
 barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell_0.3  stat    test_scripting.sh  wait.c
 env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     shell.c    stat.c  wait
 
-exit $?
-98
+/bin/exit
+logout
+Connection to 127.0.0.1 closed.
 
-env
+/bin/env
 USER=julien
 LANGUAGE=en_US
 SESSION=ubuntu
