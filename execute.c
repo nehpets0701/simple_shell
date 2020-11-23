@@ -1,7 +1,7 @@
 #include "shellHeader.h"
 
 /**
- *execute-executes given command
+ *executeProg-executes given command
  *Return: void
  *@argv: given command/tokens
  */
@@ -30,33 +30,4 @@ void executeProg(char **argv)
 	}
 	free(argv[i]);
 	free(argv);
-	return;
 }
-
-/**
- *executeBuiltin-custom commands
- *Return: void
- *@argv:input
- */
-/*
-void executeBuiltin(char **argv)
-{
-	int i;
-
-	builtin_t function[] = {
-		{"env", func_exit},
-		{"exit", func_exit},
-		{NULL, NULL}
-	};
-
-	for (i = 0; *(function + i)-input, i++)
-	{
-		if (_strcmp(*(function + i)->cmd, argv[0]) == 0)
-		{
-			function = *(function + i)->func;
-			return(function(argv));
-		}
-	}
-	return (-1);
-}
-*/

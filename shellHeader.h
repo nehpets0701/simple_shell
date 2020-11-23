@@ -1,13 +1,6 @@
 #ifndef _shellHeader_H_
 #define _shellHeader_H_
 
-/*struct for calling functions*/
-/**
- *struct builtin-function pointers
- *@input:input
- *@function:h
- */
-
 /*headers*/
 #include <stdio.h>
 #include <fcntl.h>

@@ -1,16 +1,16 @@
-#include "shellHeader.h" 
+#include "shellHeader.h"
 #include <string.h>
 #include <stdlib.h>
 
 /**
- * _strtok - break strings into token using delimiters
+ * ShellStrtok - break strings into token using delimiters
  *
  * @s: content of the string
  *
  * @delim: delimiters used to split the string
  *
  * Return: tokens from string
- */ 
+ */
 
 char **ShellStrtok(char *s, char *delim)
 {
