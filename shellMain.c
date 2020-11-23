@@ -20,10 +20,13 @@ int printPrompt(void)
 /**
  *main-main shell function
  *Return: 0 or -1 if failure
+ *@argc:number of args
+ *@argv:value of args
+ *@env:enviornment
  */
 int main(int argc, char **argv, char **env)
 {
- 	char *input = NULL;
+	char *input = NULL;
 	char **subInputs = NULL;
 	size_t length = 1024;
 	int read = 0;
@@ -50,7 +53,7 @@ int main(int argc, char **argv, char **env)
 		if (input[read - 1] == '\n')
 			input[read - 1] = '\0';
 
-		if (_strcmp(input ,"exit") == 0)
+		if (_strcmp(input, "exit") == 0)
 		{
 			free(input);
 			return (0);
