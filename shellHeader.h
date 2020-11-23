@@ -7,11 +7,6 @@
  *@input:input
  *@function:h
  */
-typedef struct builtin
-{
-	char *input;
-	char *(*function)(char **argv);
-} builtin_t;
 
 /*headers*/
 #include <stdio.h>
