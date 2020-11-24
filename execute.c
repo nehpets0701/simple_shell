@@ -9,7 +9,7 @@
 void executeProg(char **argv, char **env)
 {
 	pid_t child;
-	int status;
+	int status, i = 0;
 
 	child = fork();
 	if (child == -1)
