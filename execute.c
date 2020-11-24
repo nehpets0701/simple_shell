@@ -4,11 +4,12 @@
  *executeProg-executes given command
  *Return: void
  *@argv: given command/tokens
+ *@env:enviornment
  */
 void executeProg(char **argv, char **env)
 {
 	pid_t child;
-	int status, i = 0;
+	int status;
 
 	child = fork();
 	if (child == -1)
