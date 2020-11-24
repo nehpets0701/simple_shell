@@ -9,13 +9,41 @@ int printPrompt(void)
 	int print = 0;
 	char *prompt = "$ ";
 
-	if (isatty(STDIN_FILENO) == 1)
+	if (isatty(STDIN_FILENO) != 0)
 		print = write(STDOUT_FILENO, prompt, 2);
 	if (print == -1)
 		return (-1);
 	return (0);
 }
 
+/**
+ *sigint-stop control c
+ *Return:void
+ *@sig:signal
+ */
+void sigint (int sig)
+{
+	(void)sig;
+	write(STDOUT_FILENO, "\n$", 3);
+}
+
+
+/**
+ *printEnv-print enviornment
+ *Return:1 hopefully
+ *@env:env data
+ */
+int printEnv(char **env)
+{
+	char **current = env;
+
+	while (*current)
+	{
+		_puts(*current);
+		current++;
+	}
+	return (1);
+}
 
 /**
  *main-main shell function
@@ -33,8 +61,7 @@ int main(int argc, char **argv, char **env)
 
 	(void)argc;
 	(void)argv;
-	(void)env;
-
+	signal(SIGINT, sigint);
 	while (1)
 	{
 		printPrompt();
@@ -49,7 +76,8 @@ int main(int argc, char **argv, char **env)
 			free(input);
 			return (-1);
 		}
-
+		if (read == 0)
+			continue;
 		if (input[read - 1] == '\n')
 			input[read - 1] = '\0';
 
@@ -58,9 +86,11 @@ int main(int argc, char **argv, char **env)
 			free(input);
 			return (0);
 		}
+		if (_strcmp(input, "env") == 0)
+			printEnv(env);
 		subInputs = ShellStrtok(input, " ");
 		if (subInputs != NULL)
-			executeProg(subInputs);
+			executeProg(subInputs, env);
 		free(input);
 	}
 	return (0);

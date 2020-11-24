@@ -16,11 +16,12 @@
 
 /*functions*/
 int main(int argc, char **argv, char **env);
-void executeProg(char **argv);
+void executeProg(char **argv, char **env);
 void executeBuiltin(char **argv);
 int _strcmp(char *s1, char *s2);
 unsigned int _strlen(char *p);
 char **ShellStrtok(char *str, char *delim);
 char *_strcpy(char *src, char *dest);
 int _putchar(char c);
+void _puts(char *str);
 #endif
